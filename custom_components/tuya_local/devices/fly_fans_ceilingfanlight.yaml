@@ -1,0 +1,82 @@
+name: Fly Fans Ceiling Fan With Light
+products:
+  - id: hceemlamlwxpufpa
+    manufacturer: Fly Fans
+entities:
+  - entity: fan
+    icon: "mdi:ceiling-fan"
+    translation_only_key: fan_with_presets
+    dps:
+      - id: 60
+        type: boolean
+        name: switch
+      - id: 61
+        type: string
+        name: preset_mode
+        mapping:
+          - dps_val: fresh
+            value: fresh
+          - dps_val: nature
+            value: nature
+      - id: 62
+        type: integer
+        name: speed
+        range:
+          min: 1
+          max: 6
+      - id: 63
+        type: string
+        name: direction
+  - entity: switch
+    translation_key: keytone
+    category: config
+    hidden: true
+    dps:
+      - id: 60
+        type: boolean
+        name: switch
+  - entity: light
+    icon: "mdi:ceiling-fan-light"
+    dps:
+      - id: 20
+        type: boolean
+        name: switch
+      - id: 21
+        type: string
+        name: work_mode
+      - id: 22
+        name: brightness
+        type: integer
+        range:
+          min: 10
+          max: 1000
+      - id: 23
+        name: color_temp
+        type: integer
+        range:
+          min: 0
+          max: 1000
+        mapping:
+          - target_range:
+              min: 2700
+              max: 6500
+  - entity: text
+    name: Scene
+    category: config
+    icon: "mdi:palette"
+    hidden: true
+    dps:
+      - id: 25
+        type: hex
+        optional: true
+        name: value
+  - entity: text
+    name: Light control
+    category: config
+    icon: "mdi:cogs"
+    hidden: true
+    dps:
+      - id: 28
+        type: string
+        optional: true
+        name: value
