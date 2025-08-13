@@ -1,0 +1,29 @@
+{
+  "result": [
+    {
+      "active_time": 1753604102,
+      "bind_space_id": "245399462",
+      "category": "kt",
+      "create_time": 1751348595,
+      "custom_name": "Living Room AC",
+      "icon": "smart/icon/ay1533354078722Ys5ce/08a9343a692213951becd308a3b10658.png",
+      "id": "bf3db6f974457a64eajm0h",
+      "ip": "77.124.225.234",
+      "is_online": true,
+      "lat": "32.35",
+      "local_key": "JkJFmVtv/0tu^UQ<",
+      "lon": "34.92",
+      "model": "1.0",
+      "name": "תדיראן מיני מרכזי אינברטר",
+      "product_id": "pdwzhqdjh6ppnjpb",
+      "product_name": "תדיראן מיני מרכזי אינברטר",
+      "sub": false,
+      "time_zone": "+03:00",
+      "update_time": 1753604134,
+      "uuid": "ef1dcaab2198ca88"
+    }
+  ],
+  "success": true,
+  "t": 1755066640562,
+  "tid": "08260692780f11f0bc424a7a32184703"
+}
