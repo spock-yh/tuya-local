@@ -1,0 +1,105 @@
+{
+  "result": {
+    "properties": [
+      {
+        "code": "switch_led",
+        "custom_name": "",
+        "dp_id": 20,
+        "time": 1755025266449,
+        "type": "bool",
+        "value": false
+      },
+      {
+        "code": "work_mode",
+        "custom_name": "",
+        "dp_id": 21,
+        "time": 1748254010098,
+        "type": "enum",
+        "value": "white"
+      },
+      {
+        "code": "bright_value",
+        "custom_name": "",
+        "dp_id": 22,
+        "time": 1755025242489,
+        "type": "value",
+        "value": 560
+      },
+      {
+        "code": "temp_value",
+        "custom_name": "",
+        "dp_id": 23,
+        "time": 1755025242489,
+        "type": "value",
+        "value": 540
+      },
+      {
+        "code": "scene_data",
+        "custom_name": "",
+        "dp_id": 25,
+        "time": 1748254010098,
+        "type": "string",
+        "value": ""
+      },
+      {
+        "code": "countdown",
+        "custom_name": "",
+        "dp_id": 26,
+        "time": 1748254010098,
+        "type": "value",
+        "value": 0
+      },
+      {
+        "code": "control_data",
+        "custom_name": "",
+        "dp_id": 28,
+        "time": 1748254010098,
+        "type": "string",
+        "value": ""
+      },
+      {
+        "code": "fan_switch",
+        "custom_name": "",
+        "dp_id": 60,
+        "time": 1755063837200,
+        "type": "bool",
+        "value": false
+      },
+      {
+        "code": "fan_mode",
+        "custom_name": "",
+        "dp_id": 61,
+        "time": 1755025242489,
+        "type": "enum",
+        "value": "fresh"
+      },
+      {
+        "code": "fan_speed",
+        "custom_name": "",
+        "dp_id": 62,
+        "time": 1755025242489,
+        "type": "value",
+        "value": 2
+      },
+      {
+        "code": "fan_direction",
+        "custom_name": "",
+        "dp_id": 63,
+        "time": 1755025242489,
+        "type": "enum",
+        "value": "reverse"
+      },
+      {
+        "code": "fan_countdown_left",
+        "custom_name": "",
+        "dp_id": 64,
+        "time": 1748254010098,
+        "type": "value",
+        "value": 0
+      }
+    ]
+  },
+  "success": true,
+  "t": 1755066559753,
+  "tid": "d7fd10e1780e11f0b492d6238a027bdd"
+}
