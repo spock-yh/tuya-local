@@ -1,0 +1,29 @@
+{
+  "result": [
+    {
+      "active_time": 1752507933,
+      "bind_space_id": "245399462",
+      "category": "fsd",
+      "create_time": 1748254010,
+      "custom_name": "Girl Ceiling",
+      "icon": "smart/device_icon/eu1748253716007lF32R/bfddd471e013f58c42y91b175214583324353.png",
+      "id": "bfddd471e013f58c42y91b",
+      "ip": "77.124.222.32",
+      "is_online": true,
+      "lat": "32.35",
+      "local_key": "3ml!X[X!MioS^qAG",
+      "lon": "34.92",
+      "model": "Celling Fan With Light",
+      "name": "Ceiling Fan 1 + Light",
+      "product_id": "hceemlamlwxpufpa",
+      "product_name": "Celling Fan 1 + Light",
+      "sub": false,
+      "time_zone": "+03:00",
+      "update_time": 1752519844,
+      "uuid": "f2fff021f5939142"
+    }
+  ],
+  "success": true,
+  "t": 1755066685861,
+  "tid": "23270994780f11f0b492d6238a027bdd"
+}
