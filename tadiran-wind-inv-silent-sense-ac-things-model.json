@@ -1,0 +1,444 @@
+{
+    "modelId": "00000166fe",
+    "services": [
+        {
+            "actions": [],
+            "code": "",
+            "description": "",
+            "events": [],
+            "name": "默认服务",
+            "properties": [
+                {
+                    "abilityId": 1,
+                    "accessMode": "rw",
+                    "code": "switch",
+                    "description": "",
+                    "extensions": {
+                        "iconName": "icon-dp_power3",
+                        "attribute": "1"
+                    },
+                    "name": "开关",
+                    "typeSpec": {
+                        "type": "bool"
+                    }
+                },
+                {
+                    "abilityId": 2,
+                    "accessMode": "rw",
+                    "code": "temp_set",
+                    "description": "",
+                    "extensions": {
+                        "iconName": "icon-dp_temp"
+                    },
+                    "name": "温度设置",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 32,
+                        "min": 16,
+                        "scale": 0,
+                        "step": 1,
+                        "unit": "℃"
+                    }
+                },
+                {
+                    "abilityId": 3,
+                    "accessMode": "ro",
+                    "code": "temp_current",
+                    "description": "",
+                    "extensions": {
+                        "iconName": "icon-dp_temp"
+                    },
+                    "name": "Temp Current",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 2000,
+                        "min": -2000,
+                        "scale": 1,
+                        "step": 1,
+                        "unit": "℃"
+                    }
+                },
+                {
+                    "abilityId": 4,
+                    "accessMode": "rw",
+                    "code": "mode",
+                    "description": "",
+                    "extensions": {
+                        "iconName": "icon-dp_mode"
+                    },
+                    "name": "工作模式",
+                    "typeSpec": {
+                        "type": "enum",
+                        "range": [
+                            "cooling",
+                            "heating",
+                            "dehum",
+                            "fan",
+                            "auto"
+                        ]
+                    }
+                },
+                {
+                    "abilityId": 5,
+                    "accessMode": "rw",
+                    "code": "fan_speed_enum",
+                    "description": "",
+                    "extensions": {
+                        "iconName": "icon-a_mode_fan",
+                        "attribute": "128"
+                    },
+                    "name": "Fan Speed Command",
+                    "typeSpec": {
+                        "type": "enum",
+                        "range": [
+                            "silent",
+                            "low",
+                            "low_med",
+                            "middle",
+                            "med_high",
+                            "high",
+                            "turbo",
+                            "auto"
+                        ]
+                    }
+                },
+                {
+                    "abilityId": 101,
+                    "accessMode": "ro",
+                    "code": "coil_in",
+                    "description": "",
+                    "name": "IDU COIL IN (TH4)",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 20000,
+                        "min": -20000,
+                        "scale": 1,
+                        "step": 1,
+                        "unit": "ºC"
+                    }
+                },
+                {
+                    "abilityId": 102,
+                    "accessMode": "ro",
+                    "code": "coil_mid",
+                    "description": "",
+                    "name": "IDU COIL MID (TH3)",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 20000,
+                        "min": -20000,
+                        "scale": 1,
+                        "step": 1,
+                        "unit": "ºC"
+                    }
+                },
+                {
+                    "abilityId": 103,
+                    "accessMode": "ro",
+                    "code": "coil_out",
+                    "description": "",
+                    "name": "IDU COIL OUT (TH2)",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 20000,
+                        "min": -20000,
+                        "scale": 1,
+                        "step": 1,
+                        "unit": "ºC"
+                    }
+                },
+                {
+                    "abilityId": 104,
+                    "accessMode": "ro",
+                    "code": "idu_rev",
+                    "description": "",
+                    "name": "IDU Rev",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 65536,
+                        "min": 0,
+                        "scale": 0,
+                        "step": 1,
+                        "unit": ""
+                    }
+                },
+                {
+                    "abilityId": 105,
+                    "accessMode": "ro",
+                    "code": "running_fan_speed",
+                    "description": "",
+                    "name": "IDU Fan Speed FB",
+                    "typeSpec": {
+                        "type": "enum",
+                        "range": [
+                            "Off",
+                            "Low",
+                            "Middle",
+                            "High",
+                            "Silent",
+                            "Low_Med",
+                            "Med_High",
+                            "Turbo"
+                        ]
+                    }
+                },
+                {
+                    "abilityId": 106,
+                    "accessMode": "ro",
+                    "code": "inverter_type",
+                    "description": "",
+                    "name": "Inverter Type",
+                    "typeSpec": {
+                        "type": "bool"
+                    }
+                },
+                {
+                    "abilityId": 107,
+                    "accessMode": "ro",
+                    "code": "odu_mode",
+                    "description": "",
+                    "name": "ODU MODE",
+                    "typeSpec": {
+                        "type": "enum",
+                        "range": [
+                            "Off",
+                            "Cool",
+                            "Heat"
+                        ]
+                    }
+                },
+                {
+                    "abilityId": 108,
+                    "accessMode": "ro",
+                    "code": "odu_fan_speed",
+                    "description": "",
+                    "name": "ODU FAN SPEED",
+                    "typeSpec": {
+                        "type": "enum",
+                        "range": [
+                            "Off",
+                            "High",
+                            "Med",
+                            "Low"
+                        ]
+                    }
+                },
+                {
+                    "abilityId": 109,
+                    "accessMode": "ro",
+                    "code": "comp_frequency",
+                    "description": "",
+                    "name": "COMP.FREQUENCY",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 65536,
+                        "min": 0,
+                        "scale": 0,
+                        "step": 1,
+                        "unit": "Hz"
+                    }
+                },
+                {
+                    "abilityId": 110,
+                    "accessMode": "ro",
+                    "code": "igbt",
+                    "description": "",
+                    "name": "IGBT Temp",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 2000,
+                        "min": -2000,
+                        "scale": 1,
+                        "step": 1,
+                        "unit": "℃"
+                    }
+                },
+                {
+                    "abilityId": 111,
+                    "accessMode": "ro",
+                    "code": "ambient",
+                    "description": "",
+                    "name": "AMBIENT Temp (TH5)",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 2000,
+                        "min": 0,
+                        "scale": 1,
+                        "step": 1,
+                        "unit": "ºC"
+                    }
+                },
+                {
+                    "abilityId": 112,
+                    "accessMode": "ro",
+                    "code": "coil_out_th4",
+                    "description": "",
+                    "name": "ODU COIL OUT(TH4)",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 2000,
+                        "min": -2000,
+                        "scale": 1,
+                        "step": 1,
+                        "unit": "ºC"
+                    }
+                },
+                {
+                    "abilityId": 113,
+                    "accessMode": "ro",
+                    "code": "coil_in_th3",
+                    "description": "",
+                    "name": "ODU COIL IN(TH3)",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 2000,
+                        "min": -2000,
+                        "scale": 1,
+                        "step": 1,
+                        "unit": "ºC"
+                    }
+                },
+                {
+                    "abilityId": 114,
+                    "accessMode": "ro",
+                    "code": "discharge",
+                    "description": "",
+                    "name": "DISCHARGE Temp (TH2)",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 2000,
+                        "min": -2000,
+                        "scale": 1,
+                        "step": 1,
+                        "unit": "ºC"
+                    }
+                },
+                {
+                    "abilityId": 115,
+                    "accessMode": "ro",
+                    "code": "suction",
+                    "description": "",
+                    "name": "SUCTION Temp (TH1)",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 2000,
+                        "min": -2000,
+                        "scale": 1,
+                        "step": 1,
+                        "unit": "ºC"
+                    }
+                },
+                {
+                    "abilityId": 116,
+                    "accessMode": "ro",
+                    "code": "comp_current",
+                    "description": "",
+                    "name": "COMP.CURRENT",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 65536,
+                        "min": 0,
+                        "scale": 1,
+                        "step": 1,
+                        "unit": ""
+                    }
+                },
+                {
+                    "abilityId": 117,
+                    "accessMode": "ro",
+                    "code": "comp_power",
+                    "description": "",
+                    "name": "COMP. POWER",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 65536,
+                        "min": 0,
+                        "scale": 0,
+                        "step": 1,
+                        "unit": ""
+                    }
+                },
+                {
+                    "abilityId": 118,
+                    "accessMode": "ro",
+                    "code": "ac_input_voltage",
+                    "description": "",
+                    "name": "AC INPUT VOLTAGE",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 65535,
+                        "min": 0,
+                        "scale": 0,
+                        "step": 1,
+                        "unit": "V"
+                    }
+                },
+                {
+                    "abilityId": 119,
+                    "accessMode": "ro",
+                    "code": "eev_open_steps",
+                    "description": "",
+                    "name": "EEV OPEN Steps",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 65536,
+                        "min": 0,
+                        "scale": 0,
+                        "step": 1,
+                        "unit": ""
+                    }
+                },
+                {
+                    "abilityId": 122,
+                    "accessMode": "ro",
+                    "code": "four_way",
+                    "description": "",
+                    "extensions": {
+                        "scope": "fault"
+                    },
+                    "name": "FOUR_WAY",
+                    "typeSpec": {
+                        "type": "bitmap",
+                        "label": [
+                            "1",
+                            "2",
+                            "3",
+                            "4"
+                        ],
+                        "maxlen": 4
+                    }
+                },
+                {
+                    "abilityId": 123,
+                    "accessMode": "ro",
+                    "code": "idu_error",
+                    "description": "",
+                    "name": "IDU Error Code",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 10,
+                        "min": 0,
+                        "scale": 0,
+                        "step": 1,
+                        "unit": ""
+                    }
+                },
+                {
+                    "abilityId": 124,
+                    "accessMode": "ro",
+                    "code": "odu_error",
+                    "description": "",
+                    "name": "ODU Error Code",
+                    "typeSpec": {
+                        "type": "value",
+                        "max": 30,
+                        "min": 0,
+                        "scale": 0,
+                        "step": 1,
+                        "unit": ""
+                    }
+                }
+            ]
+        }
+    ]
+}
