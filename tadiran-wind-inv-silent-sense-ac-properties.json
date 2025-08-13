@@ -1,0 +1,225 @@
+{
+  "result": {
+    "properties": [
+      {
+        "code": "switch",
+        "custom_name": "",
+        "dp_id": 1,
+        "time": 1755055214137,
+        "type": "bool",
+        "value": true
+      },
+      {
+        "code": "temp_set",
+        "custom_name": "",
+        "dp_id": 2,
+        "time": 1755061959495,
+        "type": "value",
+        "value": 25
+      },
+      {
+        "code": "temp_current",
+        "custom_name": "",
+        "dp_id": 3,
+        "time": 1755065928489,
+        "type": "value",
+        "value": 275
+      },
+      {
+        "code": "mode",
+        "custom_name": "",
+        "dp_id": 4,
+        "time": 1755057342442,
+        "type": "enum",
+        "value": "dehum"
+      },
+      {
+        "code": "fan_speed_enum",
+        "custom_name": "",
+        "dp_id": 5,
+        "time": 1755055222198,
+        "type": "enum",
+        "value": "high"
+      },
+      {
+        "code": "coil_in",
+        "custom_name": "",
+        "dp_id": 101,
+        "time": 1755066128474,
+        "type": "value",
+        "value": 125
+      },
+      {
+        "code": "coil_mid",
+        "custom_name": "",
+        "dp_id": 102,
+        "time": 1755065864515,
+        "type": "value",
+        "value": 150
+      },
+      {
+        "code": "coil_out",
+        "custom_name": "",
+        "dp_id": 103,
+        "time": 1755065856453,
+        "type": "value",
+        "value": 130
+      },
+      {
+        "code": "idu_rev",
+        "custom_name": "",
+        "dp_id": 104,
+        "time": 1753604108773,
+        "type": "value",
+        "value": 8
+      },
+      {
+        "code": "running_fan_speed",
+        "custom_name": "",
+        "dp_id": 105,
+        "time": 1755057350504,
+        "type": "enum",
+        "value": "Low"
+      },
+      {
+        "code": "inverter_type",
+        "custom_name": "",
+        "dp_id": 106,
+        "time": 1753604108773,
+        "type": "bool",
+        "value": true
+      },
+      {
+        "code": "odu_mode",
+        "custom_name": "",
+        "dp_id": 107,
+        "time": 1755057350504,
+        "type": "enum",
+        "value": "Cool"
+      },
+      {
+        "code": "odu_fan_speed",
+        "custom_name": "",
+        "dp_id": 108,
+        "time": 1753604108773,
+        "type": "enum",
+        "value": "Off"
+      },
+      {
+        "code": "comp_frequency",
+        "custom_name": "",
+        "dp_id": 109,
+        "time": 1755063495914,
+        "type": "value",
+        "value": 35
+      },
+      {
+        "code": "igbt",
+        "custom_name": "",
+        "dp_id": 110,
+        "time": 1755066136535,
+        "type": "value",
+        "value": 620
+      },
+      {
+        "code": "ambient",
+        "custom_name": "",
+        "dp_id": 111,
+        "time": 1755066456666,
+        "type": "value",
+        "value": 335
+      },
+      {
+        "code": "coil_out_th4",
+        "custom_name": "",
+        "dp_id": 112,
+        "time": 1755066448602,
+        "type": "value",
+        "value": 375
+      },
+      {
+        "code": "coil_in_th3",
+        "custom_name": "",
+        "dp_id": 113,
+        "time": 1755065944353,
+        "type": "value",
+        "value": 405
+      },
+      {
+        "code": "discharge",
+        "custom_name": "",
+        "dp_id": 114,
+        "time": 1755066456666,
+        "type": "value",
+        "value": 600
+      },
+      {
+        "code": "suction",
+        "custom_name": "",
+        "dp_id": 115,
+        "time": 1755066344585,
+        "type": "value",
+        "value": 195
+      },
+      {
+        "code": "comp_current",
+        "custom_name": "",
+        "dp_id": 116,
+        "time": 1755066592676,
+        "type": "value",
+        "value": 82
+      },
+      {
+        "code": "comp_power",
+        "custom_name": "",
+        "dp_id": 117,
+        "time": 1753604108773,
+        "type": "value",
+        "value": 0
+      },
+      {
+        "code": "ac_input_voltage",
+        "custom_name": "",
+        "dp_id": 118,
+        "time": 1755066600482,
+        "type": "value",
+        "value": 229
+      },
+      {
+        "code": "eev_open_steps",
+        "custom_name": "",
+        "dp_id": 119,
+        "time": 1755063391898,
+        "type": "value",
+        "value": 163
+      },
+      {
+        "code": "four_way",
+        "custom_name": "",
+        "dp_id": 122,
+        "time": 1753604108773,
+        "type": "bitmap",
+        "value": 0
+      },
+      {
+        "code": "idu_error",
+        "custom_name": "",
+        "dp_id": 123,
+        "time": 1753604108773,
+        "type": "value",
+        "value": 0
+      },
+      {
+        "code": "odu_error",
+        "custom_name": "",
+        "dp_id": 124,
+        "time": 1753604117124,
+        "type": "value",
+        "value": 0
+      }
+    ]
+  },
+  "success": true,
+  "t": 1755066600961,
+  "tid": "f08eaf0c780e11f0b492d6238a027bdd"
+}
