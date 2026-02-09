@@ -43,11 +43,15 @@ from .helpers.device_config import get_config
 from .helpers.log import log_json
 
 _LOGGER = logging.getLogger(__name__)
+DEVICE_DETAILS_URL = (
+    "https://github.com/make-all/tuya-local/blob/main/DEVICE_DETAILS.md"
+    "#finding-your-device-id-and-local-key"
+)
 
 
 class ConfigFlowHandler(ConfigFlow, domain=DOMAIN):
     VERSION = 13
-    MINOR_VERSION = 9
+    MINOR_VERSION = 15
     CONNECTION_CLASS = CONN_CLASS_LOCAL_PUSH
     device = None
     data = {}
@@ -354,7 +358,10 @@ class ConfigFlowHandler(ConfigFlow, domain=DOMAIN):
                         self.device.set_detected_product_id(
                             self.__cloud_device.get("local_product_id")
                         )
-
+                await self.async_set_unique_id(
+                    user_input.get(CONF_DEVICE_CID, user_input[CONF_DEVICE_ID])
+                )
+                self._abort_if_unique_id_configured()
                 return await self.async_step_select_type()
             else:
                 errors["base"] = "connection"
@@ -381,6 +388,7 @@ class ConfigFlowHandler(ConfigFlow, domain=DOMAIN):
                     vol.Optional(CONF_DEVICE_CID, **devcid_opts): str,
                 }
             ),
+            description_placeholders={"device_details_url": DEVICE_DETAILS_URL},
             errors=errors,
         )
 
@@ -524,6 +532,7 @@ class OptionsFlowHandler(OptionsFlow):
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema(schema),
+            description_placeholders={"device_details_url": DEVICE_DETAILS_URL},
             errors=errors,
         )
 

@@ -1,10 +1,12 @@
 fuzzywuzzy
 levenshtein
+pycares~=4.11.0
+PyTurboJPEG~=1.7.5
 pytest-homeassistant-custom-component==0.13.254
 pytest
 pytest-asyncio
 pytest-cov
 ruff
-tinytuya~=1.17.3
+tinytuya~=1.17.4
 tuya-device-sharing-sdk~=0.2.1
 yamllint

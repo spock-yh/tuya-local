@@ -10,6 +10,7 @@ from custom_components.tuya_local.button import TuyaLocalButton
 from custom_components.tuya_local.camera import TuyaLocalCamera
 from custom_components.tuya_local.climate import TuyaLocalClimate
 from custom_components.tuya_local.cover import TuyaLocalCover
+from custom_components.tuya_local.datetime import TuyaLocalDateTime
 from custom_components.tuya_local.event import TuyaLocalEvent
 from custom_components.tuya_local.fan import TuyaLocalFan
 from custom_components.tuya_local.helpers.device_config import (
@@ -39,6 +40,7 @@ DEVICE_TYPES = {
     "camera": TuyaLocalCamera,
     "climate": TuyaLocalClimate,
     "cover": TuyaLocalCover,
+    "datetime": TuyaLocalDateTime,
     "event": TuyaLocalEvent,
     "fan": TuyaLocalFan,
     "humidifier": TuyaLocalHumidifier,
@@ -123,6 +125,12 @@ class TuyaDeviceTestCase(IsolatedAsyncioTestCase):
                         e.entity_category,
                         EntityCategory.DIAGNOSTIC,
                         msg=f"{k} is {e.entity_category.value}, expected diagnostic",
+                    )
+                elif type(e) is TuyaLocalButton:
+                    self.assertIn(
+                        e.entity_category,
+                        [EntityCategory.CONFIG, EntityCategory.DIAGNOSTIC],
+                        msg=f"{k} is unsupported {e.entity_category.value}",
                     )
                 else:
                     self.assertEqual(

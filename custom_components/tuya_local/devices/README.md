@@ -304,6 +304,12 @@ For base64 and hex types, this specifies how to extract a single numeric value f
 
 For base64 and hex types, this specifies the endianess of the data and mask. Could be "big" or "little".
 
+### `mask_signed`
+
+*Optional, default=false*
+
+For base64 and hex types, set this to true if you need to extract a signed integer from the masked field.
+
 ## Mapping Rules
 
 Mapping rules can change the behavior of attributes beyond simple
@@ -649,6 +655,16 @@ Either **position**, **action** or **open** should be specified otherwise the co
 - **open** (optional, boolean): a dp that reports if the cover is open. Only used if **position** is not available.
 - **tilt_position** (optional, number): a dp to control the tilt opening of the cover (an example is venetian blinds that tilt as well as go up and down). The range will be auto-converted to the 0-100 expected by HA.
 
+### `datetime`
+*At least one of the following dps is required**
+
+- **year** (optional, integer in range 1970-) - the year component
+- **month** (optional, integer in range 1-12) - the month component
+- **day** (optional, integer in range 1-31) - the day component
+- **hour** (optional, integer in range 0-24 or more if this is the only dp) - the hour component
+- **minute** (optional, integer in range 0-60 or more if the only dp) - the minute component
+- **second** (optional, integer in range 0-60 or more if the only dp) - the second component. If this is the only component, this is equivalent to `unixtime`.
+
 ### `fan`
 - **switch** (optional, boolean): a dp to control the power state of the fan
 - **preset_mode** (optional, mapping of strings): a dp to control different modes of the fan.
@@ -713,6 +729,7 @@ no information will be available about which specific credential was used to unl
 - **approve_unlock** (optional, boolean): a dp to unlock the lock in response to a request.
 - **request_intercom** (optional, integer): a dp to signal that a request has been made via intercom to unlock, the value should indicate the time remaining for approval.
 - **approve_intercom** (optional, boolean): a dp to unlock the lock in response to an intercom request.
+- **code_unlock** (optional, base64): a dp to unlock the lock by giving an 8 digit code. This corresponds in the Tuya info to `remote_no_dp_key` and has a specific format. The 8 digit key assigned to user 1 must be sent to unlock (and optionally lock) the lock.
 - **jammed** (optional, boolean): a dp to signal that the lock is jammed.
 
 ### `number`
@@ -766,6 +783,7 @@ to use it for other length timers.
 - **hour** (optional, integer in range 0-24) - the hours component
 - **minute** (optional, integer in range 0-60 or 0-1440 if the only dp) - the minute component
 - **second** (optional, integer in range 0-60 or 0-84600 if the only dp) - the second component
+- **hms** (optional, string in format "hh:mm", "hh:mm:ss", "hhmm" or "hhmmss" - all components as a string
 
 ### `vacuum`
 - **status** (required, mapping of strings): a dp to report and control the status of the vacuum.
