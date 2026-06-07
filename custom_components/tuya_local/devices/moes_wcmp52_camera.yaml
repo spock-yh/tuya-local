@@ -21,6 +21,23 @@ entities:
       - id: 150
         type: boolean
         name: record
+  # DP 105 also controls camera power (inverted there); on = privacy engaged.
+  - entity: switch
+    name: Privacy
+    icon: "mdi:eye-off"
+    dps:
+      - id: 105
+        type: boolean
+        name: switch
+  # DP 150 also drives the camera's is_recording; on = recording enabled.
+  - entity: switch
+    name: Recording
+    icon: "mdi:record-rec"
+    category: config
+    dps:
+      - id: 150
+        type: boolean
+        name: switch
   - entity: light
     translation_key: indicator
     category: config
@@ -36,8 +53,7 @@ entities:
         type: boolean
         name: switch
   - entity: switch
-    name: Watermark
-    icon: "mdi:watermark"
+    translation_key: watermark
     category: config
     dps:
       - id: 104
@@ -67,8 +83,7 @@ entities:
         optional: true
         name: switch
   - entity: select
-    name: Night vision
-    icon: "mdi:weather-night"
+    translation_key: night_vision
     category: config
     dps:
       - id: 108
@@ -327,8 +342,7 @@ entities:
         optional: true
         name: sound
   - entity: select
-    name: Record mode
-    icon: "mdi:video"
+    translation_key: recording_mode
     category: config
     dps:
       - id: 151
@@ -336,9 +350,9 @@ entities:
         name: option
         mapping:
           - dps_val: "1"
-            value: Event
+            value: event
           - dps_val: "2"
-            value: Continuous
+            value: continuous
   - entity: number
     translation_key: volume
     category: config
@@ -398,7 +412,6 @@ entities:
   - entity: button
     name: Stop zooming
     icon: "mdi:stop-circle-outline"
-    category: config
     dps:
       - id: 164
         type: boolean
@@ -418,8 +431,7 @@ entities:
             value: false
             hidden: true
   - entity: event
-    name: Alarm
-    icon: "mdi:alarm-bell"
+    translation_key: alarm
     dps:
       - id: 185
         type: string
