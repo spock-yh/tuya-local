@@ -1,10 +1,12 @@
 import asyncio
+import logging
 from time import time
 
 import pytest
 
 # from homeassistant.const import EVENT_HOMEASSISTANT_STARTED, EVENT_HOMEASSISTANT_STOP
-from custom_components.tuya_local.device import TuyaLocalDevice
+from custom_components.tuya_local.const import CONF_DEVICE_ID, DOMAIN
+from custom_components.tuya_local.device import TuyaLocalDevice, async_delete_device
 
 from .const import EUROM_600_HEATER_PAYLOAD
 
@@ -66,6 +68,25 @@ def test_device_info(subject, mock_api):
         "name": "Some name",
         "manufacturer": "Tuya",
     }
+
+
+@pytest.mark.asyncio
+async def test_delete_keeps_device_entry_when_stop_fails(hass, mocker):
+    """Device cache should not be removed before stop succeeds."""
+    device = mocker.MagicMock()
+    device.async_stop = mocker.AsyncMock(side_effect=RuntimeError("stop failed"))
+    hass.data[DOMAIN] = {
+        "deviceid": {
+            "device": device,
+            "tuyadevice": mocker.MagicMock(),
+            "tuyadevicelock": mocker.MagicMock(),
+        }
+    }
+
+    with pytest.raises(RuntimeError, match="stop failed"):
+        await async_delete_device(hass, {CONF_DEVICE_ID: "deviceid"})
+
+    assert hass.data[DOMAIN]["deviceid"]["device"] is device
 
 
 def test_has_returned_state(subject):
@@ -154,11 +175,22 @@ async def test_api_protocol_version_is_rotated_with_each_failure(
 
     mock_api().set_version.assert_has_calls(
         [
+            mocker.call(3.3),
             mocker.call(3.1),
             mocker.call(3.2),
             mocker.call(3.4),
             mocker.call(3.5),
             mocker.call(3.3),
+            mocker.call(3.4),
+            mocker.call(3.5),
+            mocker.call(3.3),
+            mocker.call(3.1),
+            mocker.call(3.2),
+            mocker.call(3.4),
+            mocker.call(3.5),
+            mocker.call(3.3),
+            mocker.call(3.4),
+            mocker.call(3.5),
             mocker.call(3.3),
             mocker.call(3.1),
         ]
@@ -656,3 +688,56 @@ def test_should_poll(subject):
     # Test initial polling
     subject._cached_state = {}
     assert subject.should_poll
+
+
+@pytest.mark.asyncio
+async def test_refresh_error_reports_device_error_code(subject, mock_api, caplog):
+    """The error code and message returned by the device are logged."""
+    subject._api_protocol_working = False
+    subject._protocol_configured = "3.3"
+    mock_api().status.return_value = {
+        "Error": "Check device key or version",
+        "Err": "914",
+        "Payload": None,
+    }
+
+    with caplog.at_level(logging.ERROR):
+        await subject.async_refresh()
+
+    assert "914" in caplog.text
+    assert "Check device key or version" in caplog.text
+    # 914 is ambiguous, so the possible causes are spelled out
+    assert "power cycled" in caplog.text
+
+
+@pytest.mark.asyncio
+async def test_refresh_error_without_error_code_is_unchanged(subject, mock_api, caplog):
+    """A failure that is not a device error logs the bare message."""
+    subject._api_protocol_working = False
+    subject._protocol_configured = "3.3"
+    mock_api().status.side_effect = Exception("connection refused")
+
+    with caplog.at_level(logging.ERROR):
+        await subject.async_refresh()
+
+    assert "Failed to refresh device state for Some name." in caplog.text
+    assert "Device reported error" not in caplog.text
+
+
+@pytest.mark.asyncio
+async def test_refresh_error_914_stays_quiet_when_rotating_protocols(
+    subject, mock_api, caplog
+):
+    """914 is expected while auto-detecting, so it must not log at error."""
+    subject._api_protocol_working = False
+    subject._protocol_configured = "auto"
+    mock_api().status.return_value = {
+        "Error": "Check device key or version",
+        "Err": "914",
+        "Payload": None,
+    }
+
+    with caplog.at_level(logging.ERROR):
+        await subject.async_refresh()
+
+    assert caplog.text == ""

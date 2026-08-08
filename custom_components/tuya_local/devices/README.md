@@ -601,7 +601,10 @@ device detection unless set to optional. A value of true will be sent
 for a button press, map this to the desired dps_val if a different
 value is required.
 
-### `camera`
+### `camera` *deprecated*
+
+As cameras are not well supported locally, forcing them into a camera entity does not give good results, instead use switch entities for the controls, and event entities for "snapshots" (which usually contain URLs to fetch the image but need some unknown authentication).
+
 - **motion_enable** (optional, boolean) a dp that enables and disables motion detection features built into the camera.
 - **record** (optional, boolean) a dp that turns reecording on and off.
 - **snapshot** (optional, base64 string) a dp that returns a snapshot image.
@@ -647,6 +650,7 @@ Either **position**, **action** or **open** should be specified otherwise the co
 
 - **position** (optional, number 0-100): a dp to control the percentage that the cover is open.
     0 means completely close, 100 means completely open.
+- **current_position** (optional, number 0-100): a dp to report the current percentage that the cover is open. This is required to get feedback from the curtain even if **position** is the same dp, as some curtains always report the last user set position even after the curtain is changed from another source so we need to be able to ignore the position reported by those devices.
 - **control** (optional, mapping of strings): a dp to control the cover. Mainly useful if **position** cannot be used.
     Valid values are `open, close, stop`
 - **action** (optional, string): a dp that reports the current state of the cover.
